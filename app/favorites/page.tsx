@@ -1,9 +1,22 @@
 import Image from "next/image";
+import { fetchUserFavorites } from "@/utils/actions";
+import SectionTitle from "@/components/global/SectionTitle";
+import ProductsGrid from "@/components/products/ProductsGrid";
 
-function FavoritesPage() {
+async function FavoritesPage() {
+  const favorites = await fetchUserFavorites();
+
+  if (favorites.length === 0)
+    return <SectionTitle text="You have no favorites yet." />;
+
   return (
     <>
-      <h1 className="text-4xl">FavoritesPage</h1>
+      <div>
+        <SectionTitle text="Favorites" />
+        <ProductsGrid
+          products={favorites.map((favorite) => favorite.product)}
+        />
+      </div>
     </>
   );
 }
