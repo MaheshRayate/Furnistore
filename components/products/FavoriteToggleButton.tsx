@@ -5,7 +5,7 @@ function FavoriteToggleButton({ productId }: { productId: string }) {
     <Button
       size="icon"
       variant="outline"
-      className="p-2 cursor-pointer border border-border"
+      className="border border-border p-2 cursor-pointer"
     >
       <FaHeart />
     </Button>

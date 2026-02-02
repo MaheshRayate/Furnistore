@@ -21,7 +21,7 @@ model Product{
   featured Boolean
   image String
   price Int
-  createAt DateTime @default(now())
+  createdAt DateTime @default(now())
   UpdatedAt DateTime @updatedAt
   clerkId String
 }
