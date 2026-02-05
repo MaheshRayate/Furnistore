@@ -264,9 +264,9 @@ export const createReviewAction = async (
   formData: FormData,
 ) => {
   const user = await getAuthUser();
-
   try {
     const rawData = Object.fromEntries(formData);
+
     const validatedFields = validateWithZodSchema(reviewSchema, rawData);
 
     await prisma.review.create({
@@ -275,11 +275,10 @@ export const createReviewAction = async (
         clerkId: user.id,
       },
     });
-
     revalidatePath(`/products/${validatedFields.productId}`);
-    return { message: "review submitted successfully" };
+    return { message: "Review submitted successfully" };
   } catch (error) {
-    renderError(error);
+    return renderError(error);
   }
 };
 
