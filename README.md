@@ -5075,6 +5075,7 @@ STRIPE_SECRET_KEY=
 - install
 
 ```sh
+
 npm install --save @stripe/react-stripe-js @stripe/stripe-js stripe axios
 ```
 
